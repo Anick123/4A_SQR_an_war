@@ -6,24 +6,37 @@ app = Flask(__name__)
 
 list_of_transactions = []
 
-with open('fichier.csv') as file:
-	reader = csv.reader(file)
-	header = next(reader)
-	for i in reader:
-		sender,receiver,Amount,date=i
-		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date})
-
-
 @app.route('/hello')
 def aff():
-    return "Hello"
+    return "Hello"	 
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+#E1 - Enregistrer une transaction
+#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Pepa\",\"receiver\":\"Salma\",\"Amount\":100.0,\"date\":\"2023-01-11\"}" http://localhost:5000/record
+#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Waren\",\"receiver\":\"Salma\",\"Amount\":200.0,\"date\":\"2023-01-12\"}" http://localhost:5000/record
+#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Ryane\",\"receiver\":\"Tom\",\"Amount\":150.0,\"date\":\"2023-01-13\"}" http://localhost:5000/record
+#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Salma\",\"receiver\":\"Albert\",\"Amount\":70.0,\"date\":\"2023-01-14\"}" http://localhost:5000/record
+@app.route('/record' , methods = ['POST'])
+def add():
+    data = request.get_json()
+    format = {
+		'date' : data['date'], 
+		'sender':data['sender'],
+		'receiver':data['receiver'],
+		'Amount':data['Amount']
+	}
+    list_of_transactions.append(format)
+    return "Magnifique"
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+#E2 - Afficher une liste de toutes les transactions dans l’ordre chronologique en fonction de la date
 @app.route('/display' , methods = ['GET'])
 def index():
     list_of_transactions.sort(key=lambda x: x['date'])
     return jsonify(list_of_transactions)
 
-#Afficher les transactions triées d'une personne quelconque
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+#E3 - Afficher une liste des transactions dans l’ordre chronologique liées à une personne
 #curl http://localhost:5000/display_for_someone?p=Salma
 #Le resultat apparaitra dans la console
 @app.route('/display_for_someone' , methods = ['GET'])
@@ -35,7 +48,9 @@ def a():
       return str(p_sorted)	 
     return " "
 
-#Afficher le montant d'une personne
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#E4 - Afficher le solde du compte de la personne
 #curl http://localhost:5000/display_balance_of_someone?p=Salma
 @app.route('/display_balance_of_someone' , methods = ['GET'])
 def b():
@@ -54,28 +69,17 @@ def b():
       if balance2>balance1 :
        newbalance = balance2 - balance1
        return "Compte:"+str(newbalance)
-      return " "	 
+      return " "
 
-#Enregister une transaction
-#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Pepa\",\"receiver\":\"Salma\",\"Amount\":\100.0\,\"date\":\"2023-01-11\"}" http://localhost:5000/record
-#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Waren\",\"receiver\":\"Salma\",\"Amount\":\"200.0\",\"date\":\"2023-01-12\"}" http://localhost:5000/record
-#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Ryane\",\"receiver\":\"Tom\",\"Amount\":\"150.0\",\"date\":\"2023-01-13\"}" http://localhost:5000/record
-#curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Salma\",\"receiver\":\"Albert\",\"Amount\":\"70.0\",\"date\":\"2023-01-14\"}" http://localhost:5000/record
-
-
-@app.route('/record' , methods = ['POST'])
-def add():
-    data = request.get_json()
-    format = {
-		'date' : data['date'], 
-		'sender':data['sender'],
-		'receiver':data['receiver'],
-		'Amount':data['Amount']
-	}
-    list_of_transactions.append(format)
-    return "Magnifique"
-
-
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+#E5 - Importer des données depuis un fichier csv.
+with open('fichier.csv') as file:
+	reader = csv.reader(file)
+	header = next(reader)
+	for i in reader:
+		sender,receiver,Amount,date=i
+		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date})
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------		
 
 if __name__ == '__main__':
     app.run(debug=True)
