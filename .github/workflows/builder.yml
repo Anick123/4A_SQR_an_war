@@ -1,12 +1,8 @@
-name: Build Application
+name: Build application
 
 on:
   push:
-    branches:
-      - main
-
-env:
-  BUILD_DIR: build
+    branches: [ main ]
 
 jobs:
   build:
@@ -16,13 +12,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-
     - name: Install dependencies
-      run: npm build
+      run: |
+        npm ci
 
-    - name: Build Application
-      run: npm run build -- --output-path ${{ env.BUILD_DIR }}
+    - name: Build application
+      run: |
+        npm run build
+
+
