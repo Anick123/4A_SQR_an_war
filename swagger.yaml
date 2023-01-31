@@ -1,0 +1,171 @@
+openapi: 3.0.3
+info:
+  title: Gestion CRUD d'un système de transactions
+  version: 1.0.0
+  description: |-
+  
+    Nous allons définir une transaction comme étant un tuplet (P1, P2, t, s), où s est égal à la somme d’argent transférée de la personne P1 à la personne P2 à l’instant t. Pour réaliser une première version de l’API REST avec Flask, nous allons réaliser une première version de l’API. Elle va etre visualisée via une liste des actions  qui doivent être mises à la disposition via un appel HTTP sur API.
+    
+    2.1.1 La réalisation de notre première version de l’API REST passe par :
+    
+        E1 - Enregistrer une transaction.
+    
+        E2 - Afficher une liste de toutes les transactions dans l’ordre chronologique.
+    
+        E3 - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
+    
+        E4 - Afficher le solde du compte de la personne.
+    
+    
+    Notre github est accesible depuis:
+    - [4A_SQR_an_war](https://github.com/Anick123/4A_SQR_an_war/tree/main/.github/workflows)
+servers:
+  - url:  http://localhost:5000/ 
+tags:
+  - name: Transactions
+    description: Tout sur les transactions 
+    
+  - name: Endpoint1
+    description: Enregistrer une transaction
+    
+  - name: Endpoint2
+    description: liste de toutes les transactions
+    
+  - name: Endpoint3
+    description: liste des transactions
+    
+  - name: Endpoint4
+    description: afficher le solde du compte de la personne
+paths:
+  /Endpoint1:
+    post:
+      tags:
+        - Endpoint1
+      summary: Create recording
+      description: Ceci permet d'enregistrer une transaction.
+      operationId: createRecord
+      requestBody:
+        description: Enregistrement de transaction
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/end1'
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/end1'
+              
+  /Endpoint2:
+    get:
+      tags:
+        - Endpoint2
+      summary: 'Affiche transaction par ordre chrono'
+      description: ''
+      operationId: getTransactionByDate
+      parameters:
+        - name: sort
+          in: query
+          description: 'Trier la liste par date chrono.'
+          required: true
+          schema:
+            type: string
+            default: date
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/end1'
+        '400':
+          description: 'Date fournie invalide.'
+        '404':
+          description: 'Transactions non trouvées.'
+  /Endpoint3/{sender}:
+    get:
+      tags:
+        - Endpoint3
+      summary: 'Affiche les transactions liées à 1 personne'
+      description: ''
+      operationId: getTransactionBypeople
+      parameters:
+        - in: path
+          name: sender
+          description: L'identifiant de la personne dont la correspondance est  /Endpoint3/{sender}.
+          required: true
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: 'Trier la liste des transactions par ordre chrono d une personne.'
+          required: true
+          schema:
+            type: string
+            default: date
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/end1'
+        '400':
+          description: 'Date fournie invalide.'
+        '404':
+          description: 'Transactions non trouvées.'
+  /Endpoint4{Amount}:
+    get:
+      tags:
+        - Endpoint4
+      summary: 'Affiche le solde du compte de la personne'
+      description: ''
+      operationId: getSoldeBypeople
+      parameters:
+        - in: path
+          name: Amount
+          description: L'identifiant du solde de la personne.
+          required: true
+          schema:
+            type: string
+            default: Amount
+        - name: sender
+          in: query
+          description:  L'identifiant de la personne.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/end1'
+        '400':
+          description: 'Date fournie invalide.'
+        '404':
+          description: 'Transactions non trouvées.'
+  
+components:
+  schemas:
+    end1:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          example: 10-12-2022
+        sender:
+          type: string
+          description: name of the sender
+          example: Muguel
+        receiver:
+          type: string
+          description: name of the receiver
+          example: Anick
+        Amount:
+          type: number
+          example: 70.14
