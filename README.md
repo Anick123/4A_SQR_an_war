@@ -3,6 +3,11 @@ Nous sommes Waren Muguel Mba Wega, Anïck Ryane Mouafo Mawetze et El Hafidy Salm
 #
 Sujet guidé : Un chemin tout tracé. Nous avons choisi ce sujet car nous sommes encore dans nos débuts et nous estimons que le TP guidé contrairement à l'autre va nous permettre de comprendre en détail et mener comme il se doit notre projet.
 #
+### 2.1.2 Procédure de chargement de données dans l’API à partir d’un fichier .cvs
+Le bout de code destiné à effectuer cette tâche ouvrira le fichier CSV 'fichier.csv' et lira chaque ligne en utilisant 'csv.reader()'. La méthode next() permettra de sauter la première ligne du fichier afin de distinguer les entêtes aux données. Nous fournissons ensuite un format: 'sender,receiver,Amount,date' , qui permettra de remplir les lignes de notre tableau de transactions 'list_of_transactions'. Aussi nous convertissons la valeur du montant de la transaction à l'aide la commande 'float(Amount)'.
+
+
+
  https://github.com/Anick123/4A_SQR_an_war/edit/main/README.md
  ![alt text](https://img-ik.cars.co.za/news-site-za/images/2022/06/a45-dyn.jpg?tr=h-347%2Cw-617)
  # Statuts actions
