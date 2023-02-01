@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import json,csv
 import sys
-
+import hashlib
 
 app = Flask(__name__)
 
@@ -25,8 +25,10 @@ def add():
 		'date' : data['date'], 
 		'sender':data['sender'],
 		'receiver':data['receiver'],
-		'Amount':data['Amount']
+		'Amount':data['Amount'],
+		'hash':hashlib.sha256((data['sender'] + data['receiver'] + data['Amount']).encode()).hexdigest()
 	}
+#Création du hash:hashlib.sha256((data['sender'] + data['receiver'] + data['Amount']).encode()).hexdigest()
     list_of_transactions.append(format)
     return "Magnifique"
 
@@ -80,7 +82,7 @@ with open('fichier.csv') as file:
 	header = next(reader)
 	for i in reader:
 		sender,receiver,Amount,date=i
-		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date})
+		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date,"hash":hashlib.sha256((sender+ receiver+Amount).encode()).hexdigest()})
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------		
 
 if __name__ == '__main__':
