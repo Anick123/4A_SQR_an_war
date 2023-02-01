@@ -15,4 +15,11 @@ Le bout de code destiné à effectuer cette tâche ouvrira le fichier CSV 'fichi
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/curl.yml/badge.svg)
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/action.yml/badge.svg)
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/builder.yml/badge.svg)
+
+## 2.1.3 Préparer l’intégration continue (CI)
+Ici on retrouve les badges pour les différents githubs actions crées, notamment : 
+*  Une déclenchée à chaque changement pour builder l’application. 
+
+* Une déclenchée manuellement pour utiliser le fichier Dockerfile pour créer une image.
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/build_Dockerfile.yml/badge.svg)
+
