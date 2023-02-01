@@ -14,3 +14,4 @@ Le bout de code destiné à effectuer cette tâche ouvrira le fichier CSV 'fichi
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/blank.yml/badge.svg)
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/curl.yml/badge.svg)
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/action.yml/badge.svg)
+![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/builder.yml/badge.svg)
