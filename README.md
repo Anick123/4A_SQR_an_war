@@ -24,7 +24,8 @@ Ici on retrouve les badges pour les différents githubs actions crées, notammen
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/builder.yml/badge.svg)
 * Une déclenchée manuellement pour utiliser le fichier Dockerfile pour créer une image.
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/build_Dockerfile.yml/badge.svg)
-* Une déclenchée pour chaque tag semver pour utiliser le fichier Dockerfile pour créer et
-pousser l’image de l’API avec en tag la version semver spécifiée.
+
+## 2.1.5 Top départ
+Déploiement d'une première release publique de l’API 
 [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 
