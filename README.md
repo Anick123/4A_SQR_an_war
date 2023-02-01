@@ -34,7 +34,7 @@ Déploiement d'une première release publique de l’API. La version à ce nivea
 ## 2.1.6 Amélioration de l’API
 Dans cette partie, pour chacune des fonctionnalités ajoutées, nous faisons une release de notre API avec le numéro de
 version adapté.
-* Nous avons choisi comme version de notre 2ème release la version v1.1.0 car nous considerons que c'est une amélioration considérable. Parmi toutes les fonctions de hashage, nous avons choisi la fonction de hachage cryptographique hashlib.sha256 car celle-ci est la plus avantageuse de par :
+### Parmi toutes les fonctions de hashage, nous avons choisi la fonction de hachage cryptographique hashlib.sha256 car celle-ci est la plus avantageuse de par :
 
 ##### Sécurité : elle permet de garantir l'intégrité des données en générant un hachage unique pour chaque entrée.
 
@@ -46,9 +46,11 @@ version adapté.
 
 ##### Prise en charge multilingue : elle est disponible dans de nombreux langages de programmation, ce qui en fait un choix pratique pour les développeurs travaillant sur des projets multilingues.
 
-L'ajout du hash d’une transaction dans son modèle: (P1, P2, t, s, h) peut etre vérifié par le badge suivant : [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
+L'ajout du hash d’une transaction dans son modèle: (P1, P2, t, s, h) peut etre vérifié par le badge suivant :
+[![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 
 * Vérification de l’intégrité des données envoyées en recalculant les hashs à partir des données envoyées et en les comparant avec les hashs stockés
 précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 * Correction du calcul de hash en prenant en compte le paramètre t : la date de transfert.
 [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
+### Nous avons choisi comme version de notre 2ème release la version v1.1.0 car nous considerons que c'est une amélioration moindre, car on ajoute juste une nouvelle fonctionnalité à notre API. La 3 ème est la version v1.2.0, pour la même raison, nous avons juste verifié l'intégrité des données. En ce qui concerne la dernière version v1.2.1, nous modifions juste le correctif de 0 à 1.
