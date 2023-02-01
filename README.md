@@ -23,5 +23,6 @@ Ici on retrouve les badges pour les différents githubs actions crées, notammen
 *  Une déclenchée à chaque changement pour builder l’application. 
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/builder.yml/badge.svg)
 * Une déclenchée manuellement pour utiliser le fichier Dockerfile pour créer une image.
+
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/build_Dockerfile.yml/badge.svg)
 
