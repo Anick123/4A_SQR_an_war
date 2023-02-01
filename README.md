@@ -57,13 +57,4 @@ précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/act
 
 
 # Indications pour les tests de l'API
-* Enregistrer une transaction
-<span style="color: green"> Some green text </span>
-
-Source: https://prograide.com/pregunta/19405/comment-ajouter-de-la-couleur-au-fichier-readmemd-de-github
-Les méthodes curl suivantes peuvent être utilisés pour remplir le tableau des transactions
-* Afficher une liste de toutes les transactions dans l’ordre chronologique.
-* Afficher une liste des transactions dans l’ordre chronologique liées à
-une personne
-* Afficher le solde du compte de la personne
-* Importer des données depuis un fichier csv
+### Le fichier tuto facilitera le test de l'application, il contient des commandes toutes prêtes pour tester l'application. Notre API requiert une certaine syntaxe pour les méthodes curl.  
