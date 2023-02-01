@@ -4,6 +4,7 @@ import json,csv
 
 app = Flask(__name__)
 
+
 list_of_transactions = []
 
 @app.route('/hello')
