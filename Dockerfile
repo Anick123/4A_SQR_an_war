@@ -4,5 +4,11 @@ RUN apt-get upgrade
 RUN apt-get update 
 RUN apt-get install python3-pip -y
 
-CMD [ "export", "FLASK_APP=firstversion_API.py" ]
+COPY . .
+ENV FLASK_APP=firstversion_API.py
+ENV FLASK_DEBUG=True
+
+EXPOSE 5000
+
+
 CMD [ "flask", "run" ]
