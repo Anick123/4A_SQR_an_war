@@ -57,7 +57,7 @@ précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/act
 
 
 # Indications pour les tests de l'API
-### Nous avons travaillé sur le cmd de Windows, voici les différentes commenades pour preparer l'environement de travail:
+### Nous avons travaillé sur le cmd de Windows, voici les différentes commandes pour préparer l'environement de travail:
  ```
  cd [path_of_file]
  set FLASK_APP=[name_of_file].py
