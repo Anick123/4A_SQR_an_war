@@ -57,13 +57,35 @@ précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/act
 
 
 # Indications pour les tests de l'API
-### Les inidcations ci-après  facilitera le test de l'application. Notre API requiert une certaine syntaxe pour les méthodes curl.  
-1.
+### Nous avons travaillé sur le cmd de Windows, voici les différentes commenades pour preparer l'environement de travail:
+ ```
+ cd [path_of_file]
+ set FLASK_APP=[name_of_file].py
+ python -m flask run -h localhost -p 5000
+ 
+ ```
+### Les indications ci-après  faciliteront le test de l'application. Notre API requiert une certaine syntaxe pour les méthodes curl.  
+
+1. Enregistrer une transaction. 
+ ```
+curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Pepa\",\"receiver\":\"Salma\",\"Amount\":100.0,\"date\":\"2023-01-11\"}" http://localhost:5000/record
+curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Waren\",\"receiver\":\"Salma\",\"Amount\":200.0,\"date\":\"2023-01-12\"}" http://localhost:5000/record
+curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Ryane\",\"receiver\":\"Tom\",\"Amount\":150.0,\"date\":\"2023-01-13\"}" http://localhost:5000/record
+curl --X POST -H "Content-type:application/json" --data-binary "{\"sender\":\"Salma\",\"receiver\":\"Albert\",\"Amount\":70.0,\"date\":\"2023-01-14\"}" http://localhost:5000/record
 ```
+2. Afficher une liste de toutes les transactions dans l’ordre chronologique.
 ```
-E1 - Enregistrer une transaction.
-E2 - Afficher une liste de toutes les transactions dans l’ordre chronologique.
-E3 - Afficher une liste des transactions dans l’ordre chronologique liées à
+http://localhost:5000/record/display
+
+```
+3. Afficher une liste des transactions dans l’ordre chronologique liées à
 une personne.
-E4 - Afficher le solde du compte de la personne.
-E5 - Importer des données depuis un fichier csv. (à documenter)
+```
+curl http://localhost:5000/display_for_someone?p=Salma
+curl http://localhost:5000/display_for_someone?p=Waren
+```
+4. Afficher le solde du compte de la personne.
+```
+curl http://localhost:5000/display_balance_of_someone?p=Salma
+curl http://localhost:5000/display_balance_of_someone?p=Albert
+```
