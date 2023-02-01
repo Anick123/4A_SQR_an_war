@@ -20,5 +20,6 @@ jobs:
     - name: Install Flask
       run: |
          python -m pip install flask
+         python firstversion_API.py build
 
 
