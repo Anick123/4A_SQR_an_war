@@ -36,12 +36,17 @@ Dans cette partie, pour chacune des fonctionnalités ajoutées, nous faisons une
 version adapté.
 * Nous avons choisi comme version de notre 2ème release la version v1.1.0 car nous considerons que c'est une amélioration considérable. Parmi toutes les fonctions de hashage, nous avons choisi la fonction de hachage cryptographique hashlib.sha256 car celle-ci est la plus avantageuse de par :
 
-##### Sa Sécurité: elle permet de garantir l'intégrité des données en générant un hachage unique pour chaque entrée.
+##### Sécurité : elle permet de garantir l'intégrité des données en générant un hachage unique pour chaque entrée.
 
-##### Fiabilité:elle est une fonction de hachage fiable et bien établie qui a été largement utilisée dans de nombreuses applications critiques.
+##### Fiabilité : elle est une fonction de hachage fiable et bien établie qui a été largement utilisée dans de nombreuses applications critiques.
 
-##### Vitesse: elle peut générer rapidement un hachage pour de grandes quantités de données.
+##### Vitesse : elle peut générer rapidement un hachage pour de grandes quantités de données.
 
-##### Simplicité: elle est simple et facile à utiliser, ce qui en fait un choix populaire pour les développeurs.
+##### Simplicité : elle est simple et facile à utiliser, ce qui en fait un choix populaire pour les développeurs.
 
-##### Prise en charge multilingue: elle est disponible dans de nombreux langages de programmation, ce qui en fait un choix pratique pour les développeurs travaillant sur des projets multilingues. 
+##### Prise en charge multilingue : elle est disponible dans de nombreux langages de programmation, ce qui en fait un choix pratique pour les développeurs travaillant sur des projets multilingues.
+
+L'ajout du hash d’une transaction dans son modèle: (P1, P2, t, s, h) peut etre vérifié par le badge suivant : 
+
+* Vérification de l’intégrité des données envoyées en recalculant les hashs à partir des données envoyées et en les comparant avec les hashs stockés
+précédemment
