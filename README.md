@@ -28,8 +28,20 @@ Ici on retrouve les badges pour les différents githubs actions crées, notammen
 ![alt](http://github.com/Anick123/4A_SQR_an_war/actions/workflows/build_Dockerfile.yml/badge.svg)
 
 ## 2.1.5 Top départ
-Déploiement d'une première release publique de l’API 
+Déploiement d'une première release publique de l’API. La version à ce niveau est: v1.0.0 car cette version sera encore améliorée plus tard.
 [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 
-Faudra expliquer cmt le hash fxnne et cette fxn de hash
+## 2.1.6 Amélioration de l’API
+Dans cette partie, pour chacune des fonctionnalités ajoutées, nous faisons une release de notre API avec le numéro de
+version adapté.
+* Nous avons choisi comme version de notre 2ème release la version v1.1.0 car nous considerons que c'est une amélioration considérable. Parmi toutes les fonctions de hashage, nous avons choisi la fonction de hachage cryptographique hashlib.sha256 car celle-ci est la plus avantageuse de par :
 
+##### Sa Sécurité: elle permet de garantir l'intégrité des données en générant un hachage unique pour chaque entrée.
+
+##### Fiabilité:elle est une fonction de hachage fiable et bien établie qui a été largement utilisée dans de nombreuses applications critiques.
+
+##### Vitesse: elle peut générer rapidement un hachage pour de grandes quantités de données.
+
+##### Simplicité: elle est simple et facile à utiliser, ce qui en fait un choix populaire pour les développeurs.
+
+##### Prise en charge multilingue: elle est disponible dans de nombreux langages de programmation, ce qui en fait un choix pratique pour les développeurs travaillant sur des projets multilingues. 
