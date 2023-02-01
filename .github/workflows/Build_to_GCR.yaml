@@ -33,7 +33,7 @@ jobs:
         with:
           # Emplacement du Dockerfile
           file: Dockerfile
-          tags: gcr.io/esirem/4a_szr//4a_ilc_momo:${{ github.ref_name }}
+          tags: gcr.io/esirem/4A_sqr/anick_salma_waren/4A_SQR_an_war:${{ github.ref_name }}
           # Emplacement des fichiers 
           context: "."
           push: true
