@@ -49,4 +49,6 @@ version adapté.
 L'ajout du hash d’une transaction dans son modèle: (P1, P2, t, s, h) peut etre vérifié par le badge suivant : [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 
 * Vérification de l’intégrité des données envoyées en recalculant les hashs à partir des données envoyées et en les comparant avec les hashs stockés
-précédemment
+précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
+* Correction du calcul de hash en prenant en compte le paramètre t : la date de transfert.
+
