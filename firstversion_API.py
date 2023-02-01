@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 
 list_of_transactions = []
+list_hashes = []
 
 @app.route('/hello')
 def aff():
@@ -26,7 +27,7 @@ def add():
 		'sender':data['sender'],
 		'receiver':data['receiver'],
 		'Amount':data['Amount'],
-		'hash':hashlib.sha256((data['sender'] + data['receiver'] + data['Amount']).encode()).hexdigest()
+		'hash':hashlib.sha256((data['sender'] + data['receiver'] + str(data['Amount'])).encode()).hexdigest()
 	}
 #Création du hash:hashlib.sha256((data['sender'] + data['receiver'] + data['Amount']).encode()).hexdigest()
     list_of_transactions.append(format)
@@ -83,8 +84,22 @@ with open('fichier.csv') as file:
 	for i in reader:
 		sender,receiver,Amount,date=i
 		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date,"hash":hashlib.sha256((sender+ receiver+Amount).encode()).hexdigest()})
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------		
-
+		#Ajout hash dans une liste 
+		list_hashes.append(hashlib.sha256((sender+ receiver+Amount).encode()).hexdigest())
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Vérification de l'intégrité des transactions
+@app.route('/integrity' , methods = ['GET'])
+def verify():
+	for i in range(len(list_of_transactions)):
+		hash = hashlib.sha256((list_of_transactions[i]['receiver'] + list_of_transactions[i]['sender'] + str(list_of_transactions[i]['Amount'])).encode()).hexdigest()
+		if hash != list_hashes[i]:
+	  		return "Intégrité des données respectée"
+		       		
+		else:
+			return "Vos données ont été falsifiée"
+				
+	return " "		
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         if sys.argv[1] == "check_syntax":
