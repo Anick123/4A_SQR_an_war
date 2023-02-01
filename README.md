@@ -57,4 +57,5 @@ précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/act
 
 
 # Indications pour les tests de l'API
-### Le fichier tuto facilitera le test de l'application, il contient des commandes toutes prêtes pour tester l'application. Notre API requiert une certaine syntaxe pour les méthodes curl.  
+### Les inidcations ci-après  facilitera le test de l'application. Notre API requiert une certaine syntaxe pour les méthodes curl.  
+1.
