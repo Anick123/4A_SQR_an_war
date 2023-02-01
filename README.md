@@ -54,3 +54,13 @@ précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/act
 * Correction du calcul de hash en prenant en compte le paramètre t : la date de transfert.
 [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 #### Nous avons choisi comme version de notre 2ème release la version v1.1.0 car nous considerons que c'est une amélioration moindre, car on ajoute juste une nouvelle fonctionnalité à notre API. La 3 ème est la version v1.2.0, pour la même raison, nous avons juste verifié l'intégrité des données. En ce qui concerne la dernière version v1.2.1, nous modifions juste le correctif de 0 à 1.
+
+
+#Indications pour les tests de l'API
+* Enregistrer une transaction
+Les méthodes curl suivantes peuvent être utilisés pour remplir le tableau des transactions
+* Afficher une liste de toutes les transactions dans l’ordre chronologique.
+* Afficher une liste des transactions dans l’ordre chronologique liées à
+une personne
+* Afficher le solde du compte de la personne
+* Importer des données depuis un fichier csv
