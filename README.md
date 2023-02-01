@@ -59,3 +59,11 @@ précédemment [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/act
 # Indications pour les tests de l'API
 ### Les inidcations ci-après  facilitera le test de l'application. Notre API requiert une certaine syntaxe pour les méthodes curl.  
 1.
+```
+```
+E1 - Enregistrer une transaction.
+E2 - Afficher une liste de toutes les transactions dans l’ordre chronologique.
+E3 - Afficher une liste des transactions dans l’ordre chronologique liées à
+une personne.
+E4 - Afficher le solde du compte de la personne.
+E5 - Importer des données depuis un fichier csv. (à documenter)
