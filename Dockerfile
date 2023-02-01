@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM python:3.8
 
 RUN apt-get upgrade
 RUN apt-get update 
