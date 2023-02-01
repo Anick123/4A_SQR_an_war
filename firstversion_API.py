@@ -29,7 +29,7 @@ def add():
 		'Amount':data['Amount'],
 		'hash':hashlib.sha256((data['sender'] + data['receiver'] + str(data['Amount'])).encode()).hexdigest()
 	}
-#Création du hash:hashlib.sha256((data['sender'] + data['receiver'] + data['Amount']).encode()).hexdigest()
+#Création du hash:hashlib.sha256((data['sender'] + data['receiver'] + data['Amount'] + data['date']).encode()).hexdigest()
     list_of_transactions.append(format)
     return "Magnifique"
 
@@ -83,15 +83,14 @@ with open('fichier.csv') as file:
 	header = next(reader)
 	for i in reader:
 		sender,receiver,Amount,date=i
-		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date,"hash":hashlib.sha256((sender+ receiver+Amount).encode()).hexdigest()})
-		#Ajout hash dans une liste 
-		list_hashes.append(hashlib.sha256((sender+ receiver+Amount).encode()).hexdigest())
+		list_of_transactions.append({"sender":sender,"receiver":receiver,"Amount":float(Amount),"date":date,"hash":hashlib.sha256((sender+ receiver+Amount+date).encode()).hexdigest()})
+		list_hashes.append(hashlib.sha256((sender+ receiver+Amount+date).encode()).hexdigest())
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Vérification de l'intégrité des transactions
 @app.route('/integrity' , methods = ['GET'])
 def verify():
 	for i in range(len(list_of_transactions)):
-		hash = hashlib.sha256((list_of_transactions[i]['receiver'] + list_of_transactions[i]['sender'] + str(list_of_transactions[i]['Amount'])).encode()).hexdigest()
+		hash = hashlib.sha256((list_of_transactions[i]['receiver'] + list_of_transactions[i]['sender'] + str(list_of_transactions[i]['Amount']) + str(list_of_transactions[i]['date'])).encode()).hexdigest()
 		if hash != list_hashes[i]:
 	  		return "Intégrité des données respectée"
 		       		
