@@ -12,12 +12,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: |
-        npm ci
+    - name: Installation python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
 
-    - name: Build application
-      run: |
-        npm run build
+    - name: Install Flask
+      run: 
+        pip install flask
 
 
