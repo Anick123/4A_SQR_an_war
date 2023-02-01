@@ -46,7 +46,7 @@ version adapté.
 
 ##### Prise en charge multilingue : elle est disponible dans de nombreux langages de programmation, ce qui en fait un choix pratique pour les développeurs travaillant sur des projets multilingues.
 
-L'ajout du hash d’une transaction dans son modèle: (P1, P2, t, s, h) peut etre vérifié par le badge suivant : 
+L'ajout du hash d’une transaction dans son modèle: (P1, P2, t, s, h) peut etre vérifié par le badge suivant : [![Docker push GCR](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml/badge.svg)](https://github.com/Anick123/4A_SQR_an_war/actions/workflows/Build_to_GCR.yml)
 
 * Vérification de l’intégrité des données envoyées en recalculant les hashs à partir des données envoyées et en les comparant avec les hashs stockés
 précédemment
