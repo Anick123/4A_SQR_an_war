@@ -91,3 +91,4 @@ curl http://localhost:5000/display_for_someone?p=Waren
 curl http://localhost:5000/display_balance_of_someone?p=Salma
 curl http://localhost:5000/display_balance_of_someone?p=Albert
 ```
+Projet fini [![](https://img.shields.io/badge/PROJET_TERMINÉ_🚀-059142?style=for-the-badge&logoColor=white)](https://dev.to/envoy_/150-badges-for-github-pnk) 
