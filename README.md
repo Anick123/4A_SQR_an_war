@@ -1,6 +1,8 @@
 # 4A_SQR_an_war
 Nous sommes Waren Muguel Mba Wega, Anïck Ryane Mouafo Mawetze et El Hafidy Salma étudiants en 4A SQR à l'ESIREM et nous dévéloppons en Python.
 
+Le projet de CI/CD étant un [![](https://img.shields.io/badge/PROJET_TERMINÉ_🚀-059142?style=for-the-badge&logoColor=white)](https://dev.to/envoy_/150-badges-for-github-pnk)
+
 ![alt text](https://esirem.u-bourgogne.fr/wp-content/uploads/2021/02/cropped-sans-titr-petite2-1.png)
 
 Notre README peut etre accessible via: https://github.com/Anick123/4A_SQR_an_war/edit/main/README.md
